@@ -1,0 +1,59 @@
+# Entity: feed
+
+main: kit: entity: feed: {
+
+  alias: field: {}
+
+  fields: {
+    headline: {
+      h: "Headline"
+      n: "headline"
+      r: true
+      sh: "e.g."
+      t: "`$STRING`"
+    }
+    tiles: {
+      h: "Tiles"
+      n: "tiles"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "feed"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /newsroom/newsroom.everydayfeed.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/newsroom/newsroom.everydayfeed.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "newsroom"
+            }
+            {
+              lit: "newsroom.everydayfeed.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

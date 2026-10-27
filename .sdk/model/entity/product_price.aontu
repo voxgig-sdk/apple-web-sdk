@@ -1,0 +1,117 @@
+# Entity: product_price
+
+main: kit: entity: product_price: {
+
+  alias: field: {}
+
+  fields: {
+    baseName: {
+      h: "Base Name"
+      n: "baseName"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Part number, e.g."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      t: "`$STRING`"
+    }
+    price: {
+      h: "Price"
+      n: "price"
+      r: false
+      t: "`$OBJECT`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "`PART` for a known part; `UNKNOWN` when the part number is not sold in this store (then only `id` and `type` are present)."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "product_price"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /{country}/shop/mcm/product-price"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "us"
+                k: "param"
+                n: "country"
+                or: "country"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "MX2D3AM/A"
+                k: "query"
+                n: "part"
+                or: "parts"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/{country}/shop/mcm/product-price"
+          q: {
+            exist: [
+              "country"
+              "part"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              var: "country"
+            }
+            {
+              lit: "shop"
+            }
+            {
+              lit: "mcm"
+            }
+            {
+              lit: "product-price"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.items`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

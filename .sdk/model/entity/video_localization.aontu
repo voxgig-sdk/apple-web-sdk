@@ -1,0 +1,393 @@
+# Entity: video_localization
+
+main: kit: entity: video_localization: {
+
+  alias: field: {}
+
+  fields: {
+    adjustvolume: {
+      h: "Adjustvolume"
+      n: "adjustvolume"
+      r: false
+      t: "`$STRING`"
+    }
+    airplay: {
+      h: "Airplay"
+      n: "airplay"
+      r: false
+      t: "`$STRING`"
+    }
+    audiotrack: {
+      h: "Audiotrack"
+      n: "audiotrack"
+      r: false
+      t: "`$STRING`"
+    }
+    audiotrackscontrol: {
+      h: "Audiotrackscontrol"
+      n: "audiotrackscontrol"
+      r: false
+      t: "`$STRING`"
+    }
+    back: {
+      h: "Back"
+      n: "back"
+      r: false
+      t: "`$STRING`"
+    }
+    captionscontrol: {
+      h: "Captionscontrol"
+      n: "captionscontrol"
+      r: false
+      t: "`$STRING`"
+    }
+    captionsoff: {
+      h: "Captionsoff"
+      n: "captionsoff"
+      r: false
+      t: "`$STRING`"
+    }
+    captionsturnedoff: {
+      h: "Captionsturnedoff"
+      n: "captionsturnedoff"
+      r: false
+      t: "`$STRING`"
+    }
+    captionsturnedon: {
+      h: "Captionsturnedon"
+      n: "captionsturnedon"
+      r: false
+      t: "`$STRING`"
+    }
+    chapter: {
+      h: "Chapter"
+      n: "chapter"
+      r: false
+      t: "`$STRING`"
+    }
+    chapters: {
+      h: "Chapters"
+      n: "chapters"
+      r: false
+      t: "`$STRING`"
+    }
+    close: {
+      h: "Close"
+      n: "close"
+      r: false
+      t: "`$STRING`"
+    }
+    closesharing: {
+      h: "Closesharing"
+      n: "closesharing"
+      r: false
+      t: "`$STRING`"
+    }
+    copyarea: {
+      h: "Copyarea"
+      n: "copyarea"
+      r: false
+      t: "`$STRING`"
+    }
+    copyembed: {
+      h: "Copyembed"
+      n: "copyembed"
+      r: false
+      t: "`$STRING`"
+    }
+    copylink: {
+      h: "Copylink"
+      n: "copylink"
+      r: false
+      t: "`$STRING`"
+    }
+    currenttimetext: {
+      h: "Currenttimetext"
+      n: "currenttimetext"
+      r: false
+      t: "`$STRING`"
+    }
+    dismisscopy: {
+      h: "Dismisscopy"
+      n: "dismisscopy"
+      r: false
+      t: "`$STRING`"
+    }
+    elapsed: {
+      h: "Elapsed"
+      n: "elapsed"
+      r: false
+      t: "`$STRING`"
+    }
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      t: "`$STRING`"
+    }
+    exitfullscreen: {
+      h: "Exitfullscreen"
+      n: "exitfullscreen"
+      r: false
+      t: "`$STRING`"
+    }
+    exitpictureinpicture: {
+      h: "Exitpictureinpicture"
+      n: "exitpictureinpicture"
+      r: false
+      t: "`$STRING`"
+    }
+    facebookshare: {
+      h: "Facebookshare"
+      n: "facebookshare"
+      r: false
+      t: "`$STRING`"
+    }
+    fullscreen: {
+      h: "Fullscreen"
+      n: "fullscreen"
+      r: false
+      t: "`$STRING`"
+    }
+    jumptochapter: {
+      h: "Jumptochapter"
+      n: "jumptochapter"
+      r: false
+      t: "`$STRING`"
+    }
+    language: {
+      h: "Language"
+      n: "language"
+      r: false
+      t: "`$STRING`"
+    }
+    live: {
+      h: "Live"
+      n: "live"
+      r: false
+      t: "`$STRING`"
+    }
+    livestream: {
+      h: "Livestream"
+      n: "livestream"
+      r: false
+      t: "`$STRING`"
+    }
+    loading: {
+      h: "Loading"
+      n: "loading"
+      r: false
+      t: "`$STRING`"
+    }
+    minutesandseconds: {
+      h: "Minutesandseconds"
+      n: "minutesandseconds"
+      r: false
+      t: "`$STRING`"
+    }
+    mutevolume: {
+      h: "Mutevolume"
+      n: "mutevolume"
+      r: false
+      t: "`$STRING`"
+    }
+    newwindow: {
+      h: "Newwindow"
+      n: "newwindow"
+      r: false
+      t: "`$STRING`"
+    }
+    pause: {
+      h: "Pause"
+      n: "pause"
+      r: false
+      t: "`$STRING`"
+    }
+    pictureinpicture: {
+      h: "Pictureinpicture"
+      n: "pictureinpicture"
+      r: false
+      t: "`$STRING`"
+    }
+    play: {
+      h: "Play"
+      n: "play"
+      r: false
+      t: "`$STRING`"
+    }
+    playpause: {
+      h: "Playpause"
+      n: "playpause"
+      r: false
+      t: "`$STRING`"
+    }
+    remaining: {
+      h: "Remaining"
+      n: "remaining"
+      r: false
+      t: "`$STRING`"
+    }
+    replay: {
+      h: "Replay"
+      n: "replay"
+      r: false
+      t: "`$STRING`"
+    }
+    seekslider: {
+      h: "Seekslider"
+      n: "seekslider"
+      r: false
+      t: "`$STRING`"
+    }
+    selectembed: {
+      h: "Selectembed"
+      n: "selectembed"
+      r: false
+      t: "`$STRING`"
+    }
+    selectlink: {
+      h: "Selectlink"
+      n: "selectlink"
+      r: false
+      t: "`$STRING`"
+    }
+    share: {
+      h: "Share"
+      n: "share"
+      r: false
+      t: "`$STRING`"
+    }
+    style: {
+      h: "Style"
+      n: "style"
+      r: false
+      t: "`$STRING`"
+    }
+    subtitlescontrol: {
+      h: "Subtitlescontrol"
+      n: "subtitlescontrol"
+      r: false
+      t: "`$STRING`"
+    }
+    subtitleslanguage: {
+      h: "Subtitleslanguage"
+      n: "subtitleslanguage"
+      r: false
+      t: "`$STRING`"
+    }
+    subtitlesturnedoff: {
+      h: "Subtitlesturnedoff"
+      n: "subtitlesturnedoff"
+      r: false
+      t: "`$STRING`"
+    }
+    subtitlesturnedon: {
+      h: "Subtitlesturnedon"
+      n: "subtitlesturnedon"
+      r: false
+      t: "`$STRING`"
+    }
+    threesixtydown: {
+      h: "Threesixtydown"
+      n: "threesixtydown"
+      r: false
+      t: "`$STRING`"
+    }
+    threesixtyicon: {
+      h: "Threesixtyicon"
+      n: "threesixtyicon"
+      r: false
+      t: "`$STRING`"
+    }
+    threesixtyleft: {
+      h: "Threesixtyleft"
+      n: "threesixtyleft"
+      r: false
+      t: "`$STRING`"
+    }
+    threesixtyright: {
+      h: "Threesixtyright"
+      n: "threesixtyright"
+      r: false
+      t: "`$STRING`"
+    }
+    threesixtyup: {
+      h: "Threesixtyup"
+      n: "threesixtyup"
+      r: false
+      t: "`$STRING`"
+    }
+    xshare: {
+      h: "Xshare"
+      n: "xshare"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "video_localization"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /ac/ac-video/latest/json/localization/{locale}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "en-US"
+                k: "param"
+                n: "locale"
+                or: "locale"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/ac/ac-video/latest/json/localization/{locale}.json"
+          q: {
+            exist: [
+              "locale"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "ac"
+            }
+            {
+              lit: "ac-video"
+            }
+            {
+              lit: "latest"
+            }
+            {
+              lit: "json"
+            }
+            {
+              lit: "localization"
+            }
+            {
+              lit: "{locale}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

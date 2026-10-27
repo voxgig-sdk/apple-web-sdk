@@ -1,0 +1,58 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 7
+  metrics: count: path: 7
+  metrics: count: method: 7
+
+  entity: articlecategory: {
+    path: "/newsroom/article.{category}.json": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: feed: {
+    path: "/newsroom/newsroom.everydayfeed.json": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: flyout: {
+    path: "/api-www/global-elements/global-header/v1/flyouts": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: geoswitcher: {
+    path: "/careers/ac-geoswitcher-data.json": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: product_price: {
+    path: "/{country}/shop/mcm/product-price": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.items`")|top
+    }
+  }
+
+  entity: suggestion: {
+    path: "/search-services/suggestions/defaultlinks/": {
+      action: "defaultlink": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: video_localization: {
+    path: "/ac/ac-video/latest/json/localization/{locale}.json": {
+      op: load: method: *GET
+    }
+  }
+
+}

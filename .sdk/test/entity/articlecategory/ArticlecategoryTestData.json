@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "articlecategory": {
+      "ARTICLECATEGORY00": {
+        "category": "s46",
+        "date": "s47",
+        "description": "s48",
+        "image": {},
+        "link": "s4a",
+        "publishedTime": 75,
+        "title": "s4c"
+      },
+      "ARTICLECATEGORY01": {
+        "category": "s8c",
+        "date": "s8d",
+        "description": "s8e",
+        "image": {},
+        "link": "s90",
+        "publishedTime": 145,
+        "title": "s92"
+      },
+      "ARTICLECATEGORY02": {
+        "category": "sd2",
+        "date": "sd3",
+        "description": "sd4",
+        "image": {},
+        "link": "sd6",
+        "publishedTime": 215,
+        "title": "sd8"
+      }
+    }
+  },
+  "new": {
+    "articlecategory": {
+      "articlecategory_ref01": {
+        "category": "s118",
+        "date": "s119",
+        "description": "s11a",
+        "image": {},
+        "link": "s11c",
+        "publishedTime": 285,
+        "title": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "GET /newsroom/article.{category}.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

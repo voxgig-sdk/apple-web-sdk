@@ -1,0 +1,2427 @@
+{
+  "def": "apple-web_0.1.0.json",
+  "main": {
+    "def": {
+      "desc": ""
+    },
+    "kit": {
+      "author": {
+        "name": "",
+        "url": ""
+      },
+      "config": {
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ],
+        "headers": {
+          "content-type": "application/json"
+        },
+        "repr": "auto"
+      },
+      "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
+      "entity": {
+        "articlecategory": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "category": {
+              "a": true,
+              "h": "Category",
+              "n": "category",
+              "r": true,
+              "sh": "e.g.",
+              "t": "`$STRING`"
+            },
+            "date": {
+              "a": true,
+              "h": "Date",
+              "n": "date",
+              "r": true,
+              "sh": "Display date, e.g.",
+              "t": "`$STRING`"
+            },
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": true,
+              "t": "`$STRING`"
+            },
+            "image": {
+              "a": true,
+              "h": "Image",
+              "n": "image",
+              "r": true,
+              "sh": "Tile images by layout.",
+              "t": "`$OBJECT`"
+            },
+            "link": {
+              "a": true,
+              "h": "Link",
+              "n": "link",
+              "r": true,
+              "sh": "Absolute article URL.",
+              "t": "`$STRING`"
+            },
+            "publishedTime": {
+              "a": true,
+              "fo": "int64",
+              "h": "Published Time",
+              "n": "publishedTime",
+              "r": true,
+              "sh": "Publication time in epoch milliseconds.",
+              "t": "`$INTEGER`"
+            },
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": true,
+              "t": "`$STRING`"
+            }
+          },
+          "name": "articlecategory",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /newsroom/article.{category}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "photos",
+                        "k": "param",
+                        "n": "category",
+                        "or": "category",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/newsroom/article.{category}.json",
+                  "q": {
+                    "exist": [
+                      "category"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "newsroom"
+                    },
+                    {
+                      "lit": "article.{category}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.results`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "feed": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "headline": {
+              "a": true,
+              "h": "Headline",
+              "n": "headline",
+              "r": true,
+              "sh": "e.g.",
+              "t": "`$STRING`"
+            },
+            "tiles": {
+              "a": true,
+              "h": "Tiles",
+              "n": "tiles",
+              "r": true,
+              "t": "`$ARRAY`"
+            }
+          },
+          "name": "feed",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /newsroom/newsroom.everydayfeed.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/newsroom/newsroom.everydayfeed.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "newsroom"
+                    },
+                    {
+                      "lit": "newsroom.everydayfeed.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.results`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "flyout": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "analyticsAttributes": {
+              "a": true,
+              "h": "Analytics Attributes",
+              "n": "analyticsAttributes",
+              "r": true,
+              "t": "`$ARRAY`"
+            },
+            "baseGroups": {
+              "a": true,
+              "h": "Base Groups",
+              "n": "baseGroups",
+              "r": false,
+              "sh": "Absent on the `apple` (home) entry.",
+              "t": "`$ARRAY`"
+            },
+            "elevatedGroups": {
+              "a": true,
+              "h": "Elevated Groups",
+              "n": "elevatedGroups",
+              "r": false,
+              "sh": "Absent on the `apple` (home) entry.",
+              "t": "`$ARRAY`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Flyout id, e.g.",
+              "t": "`$STRING`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Menu name, e.g.",
+              "t": "`$STRING`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "flyout",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api-www/global-elements/global-header/v1/flyouts",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "en_US",
+                        "k": "query",
+                        "n": "locale",
+                        "or": "locale",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api-www/global-elements/global-header/v1/flyouts",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "api-www"
+                    },
+                    {
+                      "lit": "global-elements"
+                    },
+                    {
+                      "lit": "global-header"
+                    },
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "flyouts"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "geoswitcher": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "localeBasedLabels": {
+              "a": true,
+              "h": "Locale Based Labels",
+              "n": "localeBasedLabels",
+              "r": true,
+              "t": "`$ARRAY`"
+            },
+            "regions": {
+              "a": true,
+              "h": "Regions",
+              "n": "regions",
+              "r": true,
+              "t": "`$ARRAY`"
+            }
+          },
+          "name": "geoswitcher",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /careers/ac-geoswitcher-data.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/careers/ac-geoswitcher-data.json",
+                  "q": {},
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "careers"
+                    },
+                    {
+                      "lit": "ac-geoswitcher-data.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "product_price": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "baseName": {
+              "a": true,
+              "h": "Base Name",
+              "n": "baseName",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Part number, e.g.",
+              "t": "`$STRING`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "price": {
+              "a": true,
+              "h": "Price",
+              "n": "price",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": true,
+              "sh": "`PART` for a known part; `UNKNOWN` when the part number is not sold in this store (then only `id` and `type` are present).",
+              "t": "`$STRING`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "product_price",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /{country}/shop/mcm/product-price",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "us",
+                        "k": "param",
+                        "n": "country",
+                        "or": "country",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "MX2D3AM/A",
+                        "k": "query",
+                        "n": "part",
+                        "or": "parts",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/{country}/shop/mcm/product-price",
+                  "q": {
+                    "exist": [
+                      "country",
+                      "part"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "var": "country"
+                    },
+                    {
+                      "lit": "shop"
+                    },
+                    {
+                      "lit": "mcm"
+                    },
+                    {
+                      "lit": "product-price"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.items`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "suggestion": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {},
+          "name": "suggestion",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search-services/suggestions/defaultlinks/",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "en_US",
+                        "k": "query",
+                        "n": "locale",
+                        "or": "locale",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "globalnav",
+                        "k": "query",
+                        "n": "src",
+                        "or": "src",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search-services/suggestions/defaultlinks/",
+                  "q": {
+                    "$action": "defaultlink"
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "search-services"
+                    },
+                    {
+                      "lit": "suggestions"
+                    },
+                    {
+                      "lit": "defaultlinks"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.results`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "video_localization": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "adjustvolume": {
+              "a": true,
+              "h": "Adjustvolume",
+              "n": "adjustvolume",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "airplay": {
+              "a": true,
+              "h": "Airplay",
+              "n": "airplay",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "audiotrack": {
+              "a": true,
+              "h": "Audiotrack",
+              "n": "audiotrack",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "audiotrackscontrol": {
+              "a": true,
+              "h": "Audiotrackscontrol",
+              "n": "audiotrackscontrol",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "back": {
+              "a": true,
+              "h": "Back",
+              "n": "back",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "captionscontrol": {
+              "a": true,
+              "h": "Captionscontrol",
+              "n": "captionscontrol",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "captionsoff": {
+              "a": true,
+              "h": "Captionsoff",
+              "n": "captionsoff",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "captionsturnedoff": {
+              "a": true,
+              "h": "Captionsturnedoff",
+              "n": "captionsturnedoff",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "captionsturnedon": {
+              "a": true,
+              "h": "Captionsturnedon",
+              "n": "captionsturnedon",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "chapter": {
+              "a": true,
+              "h": "Chapter",
+              "n": "chapter",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "chapters": {
+              "a": true,
+              "h": "Chapters",
+              "n": "chapters",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "close": {
+              "a": true,
+              "h": "Close",
+              "n": "close",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "closesharing": {
+              "a": true,
+              "h": "Closesharing",
+              "n": "closesharing",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "copyarea": {
+              "a": true,
+              "h": "Copyarea",
+              "n": "copyarea",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "copyembed": {
+              "a": true,
+              "h": "Copyembed",
+              "n": "copyembed",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "copylink": {
+              "a": true,
+              "h": "Copylink",
+              "n": "copylink",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "currenttimetext": {
+              "a": true,
+              "h": "Currenttimetext",
+              "n": "currenttimetext",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "dismisscopy": {
+              "a": true,
+              "h": "Dismisscopy",
+              "n": "dismisscopy",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "elapsed": {
+              "a": true,
+              "h": "Elapsed",
+              "n": "elapsed",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "error": {
+              "a": true,
+              "h": "Error",
+              "n": "error",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "exitfullscreen": {
+              "a": true,
+              "h": "Exitfullscreen",
+              "n": "exitfullscreen",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "exitpictureinpicture": {
+              "a": true,
+              "h": "Exitpictureinpicture",
+              "n": "exitpictureinpicture",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "facebookshare": {
+              "a": true,
+              "h": "Facebookshare",
+              "n": "facebookshare",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "fullscreen": {
+              "a": true,
+              "h": "Fullscreen",
+              "n": "fullscreen",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "jumptochapter": {
+              "a": true,
+              "h": "Jumptochapter",
+              "n": "jumptochapter",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "language": {
+              "a": true,
+              "h": "Language",
+              "n": "language",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "live": {
+              "a": true,
+              "h": "Live",
+              "n": "live",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "livestream": {
+              "a": true,
+              "h": "Livestream",
+              "n": "livestream",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "loading": {
+              "a": true,
+              "h": "Loading",
+              "n": "loading",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "minutesandseconds": {
+              "a": true,
+              "h": "Minutesandseconds",
+              "n": "minutesandseconds",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "mutevolume": {
+              "a": true,
+              "h": "Mutevolume",
+              "n": "mutevolume",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "newwindow": {
+              "a": true,
+              "h": "Newwindow",
+              "n": "newwindow",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "pause": {
+              "a": true,
+              "h": "Pause",
+              "n": "pause",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "pictureinpicture": {
+              "a": true,
+              "h": "Pictureinpicture",
+              "n": "pictureinpicture",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "play": {
+              "a": true,
+              "h": "Play",
+              "n": "play",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "playpause": {
+              "a": true,
+              "h": "Playpause",
+              "n": "playpause",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "remaining": {
+              "a": true,
+              "h": "Remaining",
+              "n": "remaining",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "replay": {
+              "a": true,
+              "h": "Replay",
+              "n": "replay",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "seekslider": {
+              "a": true,
+              "h": "Seekslider",
+              "n": "seekslider",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "selectembed": {
+              "a": true,
+              "h": "Selectembed",
+              "n": "selectembed",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "selectlink": {
+              "a": true,
+              "h": "Selectlink",
+              "n": "selectlink",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "share": {
+              "a": true,
+              "h": "Share",
+              "n": "share",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "style": {
+              "a": true,
+              "h": "Style",
+              "n": "style",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "subtitlescontrol": {
+              "a": true,
+              "h": "Subtitlescontrol",
+              "n": "subtitlescontrol",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "subtitleslanguage": {
+              "a": true,
+              "h": "Subtitleslanguage",
+              "n": "subtitleslanguage",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "subtitlesturnedoff": {
+              "a": true,
+              "h": "Subtitlesturnedoff",
+              "n": "subtitlesturnedoff",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "subtitlesturnedon": {
+              "a": true,
+              "h": "Subtitlesturnedon",
+              "n": "subtitlesturnedon",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "threesixtydown": {
+              "a": true,
+              "h": "Threesixtydown",
+              "n": "threesixtydown",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "threesixtyicon": {
+              "a": true,
+              "h": "Threesixtyicon",
+              "n": "threesixtyicon",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "threesixtyleft": {
+              "a": true,
+              "h": "Threesixtyleft",
+              "n": "threesixtyleft",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "threesixtyright": {
+              "a": true,
+              "h": "Threesixtyright",
+              "n": "threesixtyright",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "threesixtyup": {
+              "a": true,
+              "h": "Threesixtyup",
+              "n": "threesixtyup",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "xshare": {
+              "a": true,
+              "h": "Xshare",
+              "n": "xshare",
+              "r": false,
+              "t": "`$STRING`"
+            }
+          },
+          "name": "video_localization",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /ac/ac-video/latest/json/localization/{locale}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "en-US",
+                        "k": "param",
+                        "n": "locale",
+                        "or": "locale",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/ac/ac-video/latest/json/localization/{locale}.json",
+                  "q": {
+                    "exist": [
+                      "locale"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "ac"
+                    },
+                    {
+                      "lit": "ac-video"
+                    },
+                    {
+                      "lit": "latest"
+                    },
+                    {
+                      "lit": "json"
+                    },
+                    {
+                      "lit": "localization"
+                    },
+                    {
+                      "lit": "{locale}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "description": "Client-side rate limiting via a token bucket",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Rate limiting",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "description": "Automatic retry of transient failures with exponential backoff",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Retry",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "test": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
+          },
+          "description": "In-memory mock transport for testing without a live server",
+          "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
+              "await": false
+            }
+          },
+          "name": "test",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Test transport",
+          "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "now": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "description": "Per-request timeout with transport abort",
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Timeout",
+          "transport": "wrap",
+          "version": "0.0.1"
+        }
+      },
+      "flow": {
+        "BasicArticlecategoryFlow": {
+          "active": true,
+          "entity": "articlecategory",
+          "key$": "BasicArticlecategoryFlow",
+          "kind": "basic",
+          "name": "BasicArticlecategoryFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {
+                "category": "category01"
+              },
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "articlecategory_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicFeedFlow": {
+          "active": true,
+          "entity": "feed",
+          "key$": "BasicFeedFlow",
+          "kind": "basic",
+          "name": "BasicFeedFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "feed_ref01",
+                "srcdatavar": "feed_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-feed_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicFlyoutFlow": {
+          "active": true,
+          "entity": "flyout",
+          "key$": "BasicFlyoutFlow",
+          "kind": "basic",
+          "name": "BasicFlyoutFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "flyout_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicGeoswitcherFlow": {
+          "active": true,
+          "entity": "geoswitcher",
+          "key$": "BasicGeoswitcherFlow",
+          "kind": "basic",
+          "name": "BasicGeoswitcherFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "geoswitcher_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicProductPriceFlow": {
+          "active": true,
+          "entity": "product_price",
+          "key$": "BasicProductPriceFlow",
+          "kind": "basic",
+          "name": "BasicProductPriceFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "product_price_ref01",
+                "srcdatavar": "product_price_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "id": "product_price01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-product_price_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicSuggestionFlow": {
+          "active": true,
+          "entity": "suggestion",
+          "key$": "BasicSuggestionFlow",
+          "kind": "basic",
+          "name": "BasicSuggestionFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "suggestion_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicVideoLocalizationFlow": {
+          "active": true,
+          "entity": "video_localization",
+          "key$": "BasicVideoLocalizationFlow",
+          "kind": "basic",
+          "name": "BasicVideoLocalizationFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "video_localization_ref01",
+                "srcdatavar": "video_localization_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "locale": "locale01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-video_localization_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "info": {
+        "auth": false,
+        "contact": {
+          "url": "https://github.com/l0v3m0n3y/apple"
+        },
+        "description": "Unofficial, undocumented JSON endpoints that the www.apple.com website itself loads (global navigation, store prices, newsroom feeds, careers and video-player strings). This is not an Apple-published API. Knowledge comes from the community Swift client https://github.com/l0v3m0n3y/apple (src/apple.swift lists the seven routes) and from live GET probes of every route on 2026-10-23. Unverified: which newsroom categories exist besides `photos` and `update` (`latest` and `press-release` returned an empty `results` list); which store `country` path values work besides `us` and `uk` (part numbers are store-specific, e.g. `MX2D3AM/A` in the US and `MX2D3ZM/A` in the UK); and locales other than en-US and fr-FR. The suggestions route needs its trailing slash (without it the server answers 200 with an empty body). No key is needed; Apple may change any of these without notice.",
+        "meta_source": "https://www.freepublicapis.com",
+        "servers": [
+          {
+            "description": "apple.com website",
+            "url": "https://www.apple.com"
+          }
+        ],
+        "summary": "Unofficial, undocumented JSON endpoints that the www.apple.com website itself loads (global navigation, store prices, newsroom feeds, careers and video-player strings).",
+        "title": "Apple Web API",
+        "version": "1.0.0",
+        "website": "https://apple.com"
+      },
+      "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,patch,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "in": "",
+          "name": "",
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
+      "phase": {
+        "build": {
+          "active": true
+        },
+        "top": {
+          "active": true
+        }
+      },
+      "publisher": {
+        "name": "",
+        "security": "",
+        "url": ""
+      },
+      "repo": {
+        "host": "github.com",
+        "path": ""
+      },
+      "target": {
+        "go": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "feature": {
+            "fullset": [
+              "test/feature_test.go"
+            ],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "apple-web",
+            "package": "",
+            "path": ""
+          },
+          "name": "go",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "",
+              "package": "",
+              "state": "pending",
+              "url": "",
+              "vault": {
+                "alias": "",
+                "env": "",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "srcfeature": false,
+          "superseded": [
+            "test/runner_test.go",
+            "test/struct_runner_test.go"
+          ],
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "apple-web",
+            "package": "",
+            "path": ""
+          },
+          "name": "go-cli",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "phase": {
+            "agentguide": {
+              "active": false
+            },
+            "entity": {
+              "active": false
+            },
+            "feature": {
+              "active": false
+            },
+            "readme": {
+              "active": false
+            },
+            "test": {
+              "active": false
+            }
+          },
+          "provides": {},
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "",
+              "package": "",
+              "state": "pending",
+              "url": "",
+              "vault": {
+                "alias": "",
+                "env": "",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "root"
+            },
+            "version": "0.0.1"
+          },
+          "superseded": [],
+          "title": "Go CLI"
+        },
+        "go-mcp": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "apple-web",
+            "package": "",
+            "path": ""
+          },
+          "name": "go-mcp",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "phase": {
+            "agentguide": {
+              "active": false
+            },
+            "entity": {
+              "active": false
+            },
+            "feature": {
+              "active": false
+            },
+            "readme": {
+              "active": false
+            },
+            "test": {
+              "active": false
+            }
+          },
+          "provides": {},
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "",
+              "package": "",
+              "state": "pending",
+              "url": "",
+              "vault": {
+                "alias": "",
+                "env": "",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "root"
+            },
+            "version": "0.0.1"
+          },
+          "superseded": [],
+          "title": "Go MCP server",
+          "tool": {
+            "write": false
+          }
+        },
+        "lua": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "--"
+          },
+          "deps": {
+            "dkjson": {
+              "active": true,
+              "kind": "prod",
+              "version": "2.5"
+            }
+          },
+          "ext": "lua",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "apple-web",
+            "package": "",
+            "path": ""
+          },
+          "name": "lua",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "luarocks",
+              "package": "",
+              "state": "pending",
+              "url": "https://luarocks.org",
+              "vault": {
+                "alias": "luarocks",
+                "env": "LUAROCKS_API_KEY",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.lua"
+          ],
+          "title": "Lua"
+        },
+        "php": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "php",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "apple-web",
+            "package": "",
+            "path": ""
+          },
+          "name": "php",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "packagist",
+              "package": "",
+              "state": "pending",
+              "url": "https://packagist.org",
+              "vault": {
+                "alias": "packagist",
+                "env": "PACKAGIST_API_TOKEN",
+                "recipe": ""
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "srcfeature": false,
+          "superseded": [
+            "test/StructRunner.php"
+          ],
+          "title": "PHP"
+        },
+        "py": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "#"
+          },
+          "deps": {
+            "requests": {
+              "active": true,
+              "kind": "prod",
+              "version": "2.33"
+            }
+          },
+          "ext": "py",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "apple-web",
+            "package": "",
+            "path": ""
+          },
+          "name": "py",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "pypi",
+              "package": "",
+              "state": "pending",
+              "url": "https://pypi.org",
+              "vault": {
+                "alias": "pypi",
+                "env": "",
+                "recipe": "pypi"
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.py"
+          ],
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "#"
+          },
+          "deps": {
+            "json": {
+              "active": true,
+              "kind": "prod",
+              "version": "*"
+            }
+          },
+          "ext": "rb",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "apple-web",
+            "package": "",
+            "path": ""
+          },
+          "name": "rb",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "rubygems",
+              "package": "",
+              "state": "pending",
+              "url": "https://rubygems.org",
+              "vault": {
+                "alias": "gem",
+                "env": "",
+                "recipe": "gem"
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.rb"
+          ],
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
+          "module": {
+            "goversion": "",
+            "name": "apple-web",
+            "package": "",
+            "path": ""
+          },
+          "name": "ts",
+          "origname": "",
+          "output": {
+            "adopt": false,
+            "create": true,
+            "path": "",
+            "repo": "",
+            "root": false,
+            "sdkrel": ""
+          },
+          "package": "@voxgig/sdkgen",
+          "provides": {
+            "schema": true,
+            "sekreto": true
+          },
+          "publish": {
+            "registry": {
+              "active": false,
+              "name": "npm",
+              "package": "",
+              "state": "pending",
+              "url": "https://registry.npmjs.org",
+              "vault": {
+                "alias": "npm",
+                "env": "",
+                "recipe": "npm"
+              }
+            },
+            "tag": {
+              "active": true,
+              "prefix": "",
+              "vault": {
+                "alias": "github",
+                "recipe": "github"
+              },
+              "via": "port"
+            },
+            "version": "0.0.1"
+          },
+          "superseded": [
+            "test/runner.ts",
+            "test/vendor/omni/compat.ts",
+            "src/feature/secrets/sekreto/Providers.ts",
+            "src/feature/secrets/sekreto/Sigv4.ts",
+            "src/feature/secrets/sekreto/provider/Registry.ts",
+            "src/feature/secrets/sekreto/provider/http.ts"
+          ],
+          "title": "TypeScript"
+        }
+      },
+      "test": {
+        "live": {
+          "app": false,
+          "base": "",
+          "strict": true
+        }
+      },
+      "text": {
+        "about_md": "",
+        "docs_url": "",
+        "entity_desc": {},
+        "homepage": "",
+        "meta_source": "",
+        "summary": "",
+        "tagline": "",
+        "title": "",
+        "website": ""
+      }
+    }
+  },
+  "name": "apple-web",
+  "origin": "voxgig-sdk"
+}

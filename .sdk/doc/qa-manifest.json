@@ -1,0 +1,31 @@
+{
+  "files": [
+    "SUMMARY.md"
+  ],
+  "config": ".sdk/doc/qa/vale.ini",
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Absent on the `apple` (home) entry.",
+      "Absolute article URL.",
+      "Articles",
+      "Default suggestions",
+      "Display date, for example `September 18, 2026`.",
+      "Flyout id, for example `8543e00d`.",
+      "Flyout menus",
+      "Localised strings",
+      "Menu name, for example `store`, `mac`, `iphone`, `support`.",
+      "Newsroom feed",
+      "Part number, for example `MX2D3AM/A`.",
+      "Prices by part number",
+      "Publication time in epoch milliseconds.",
+      "Switcher data",
+      "Tile images by layout.",
+      "Unofficial, undocumented JSON endpoints that the `www.apple.com` website itself loads (global navigation, store prices, newsroom feeds, careers and video-player strings). This is not an Apple-published API. Knowledge comes from the community Swift client https://github.com/l0v3m0n3y/apple (src/apple.swift lists the seven routes) and from live GET probes of every route on 2026-10-23. Unverified: which newsroom categories exist besides `photos` and `update` (`latest` and `press-release` returned an empty `results` list); which store `country` path values work besides `us` and `uk` (part numbers are store-specific, for example `MX2D3AM/A` in the US and `MX2D3ZM/A` in the UK); and locales other than en-US and fr-FR. The suggestions route needs its trailing slash (without it the server answers 200 with an empty body). No key is needed; Apple may change any of these without notice.",
+      "`PART` for a known part; `UNKNOWN` when the part number is not sold in this store (then only `id` and `type` are present).",
+      "apple.com website",
+      "for example `Latest News`.",
+      "for example `PHOTOS`, `UPDATE`."
+    ]
+  }
+}

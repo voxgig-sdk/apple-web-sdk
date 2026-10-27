@@ -1,0 +1,111 @@
+# Entity: articlecategory
+
+main: kit: entity: articlecategory: {
+
+  alias: field: {}
+
+  fields: {
+    category: {
+      h: "Category"
+      n: "category"
+      r: true
+      sh: "e.g."
+      t: "`$STRING`"
+    }
+    date: {
+      h: "Date"
+      n: "date"
+      r: true
+      sh: "Display date, e.g."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      t: "`$STRING`"
+    }
+    image: {
+      h: "Image"
+      n: "image"
+      r: true
+      sh: "Tile images by layout."
+      t: "`$OBJECT`"
+    }
+    link: {
+      h: "Link"
+      n: "link"
+      r: true
+      sh: "Absolute article URL."
+      t: "`$STRING`"
+    }
+    publishedTime: {
+      fo: "int64"
+      h: "Published Time"
+      n: "publishedTime"
+      r: true
+      sh: "Publication time in epoch milliseconds."
+      t: "`$INTEGER`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "articlecategory"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /newsroom/article.{category}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "photos"
+                k: "param"
+                n: "category"
+                or: "category"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/newsroom/article.{category}.json"
+          q: {
+            exist: [
+              "category"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "newsroom"
+            }
+            {
+              lit: "article.{category}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

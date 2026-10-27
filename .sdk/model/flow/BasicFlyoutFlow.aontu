@@ -1,0 +1,22 @@
+# BasicFlyoutFlow
+
+main: kit: flow: BasicFlyoutFlow:
+{
+  entity: "flyout",
+  kind: "basic",
+  name: "BasicFlyoutFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "flyout_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFlyoutFlow"
+}

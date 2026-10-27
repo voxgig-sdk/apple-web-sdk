@@ -1,0 +1,26 @@
+# BasicArticlecategoryFlow
+
+main: kit: flow: BasicArticlecategoryFlow:
+{
+  entity: "articlecategory",
+  kind: "basic",
+  name: "BasicArticlecategoryFlow",
+  step: [
+    {
+      m: {
+        category: "category01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "articlecategory_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicArticlecategoryFlow"
+}

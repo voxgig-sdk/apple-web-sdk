@@ -1,0 +1,9 @@
+# Entity Models
+
+@"./articlecategory.aontu"
+@"./feed.aontu"
+@"./flyout.aontu"
+@"./geoswitcher.aontu"
+@"./product_price.aontu"
+@"./suggestion.aontu"
+@"./video_localization.aontu"

@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "feed": {
+      "FEED00": {
+        "headline": "s14",
+        "tiles": [],
+        "id": "FEED00"
+      },
+      "FEED01": {
+        "headline": "s28",
+        "tiles": [],
+        "id": "FEED01"
+      },
+      "FEED02": {
+        "headline": "s3c",
+        "tiles": [],
+        "id": "FEED02"
+      }
+    }
+  },
+  "new": {
+    "feed": {
+      "feed_ref01": {
+        "headline": "s50",
+        "tiles": []
+      }
+    }
+  },
+  "requests": {
+    "GET /newsroom/newsroom.everydayfeed.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

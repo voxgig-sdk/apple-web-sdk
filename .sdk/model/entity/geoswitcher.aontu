@@ -1,0 +1,58 @@
+# Entity: geoswitcher
+
+main: kit: entity: geoswitcher: {
+
+  alias: field: {}
+
+  fields: {
+    localeBasedLabels: {
+      h: "Locale Based Labels"
+      n: "localeBasedLabels"
+      r: true
+      t: "`$ARRAY`"
+    }
+    regions: {
+      h: "Regions"
+      n: "regions"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "geoswitcher"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /careers/ac-geoswitcher-data.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/careers/ac-geoswitcher-data.json"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "careers"
+            }
+            {
+              lit: "ac-geoswitcher-data.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

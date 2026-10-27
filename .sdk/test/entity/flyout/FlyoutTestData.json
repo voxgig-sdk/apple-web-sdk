@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "flyout": {
+      "FLYOUT00": {
+        "analyticsAttributes": [],
+        "baseGroups": [],
+        "elevatedGroups": [],
+        "id": "FLYOUT00",
+        "name": "s36"
+      },
+      "FLYOUT01": {
+        "analyticsAttributes": [],
+        "baseGroups": [],
+        "elevatedGroups": [],
+        "id": "FLYOUT01",
+        "name": "s68"
+      },
+      "FLYOUT02": {
+        "analyticsAttributes": [],
+        "baseGroups": [],
+        "elevatedGroups": [],
+        "id": "FLYOUT02",
+        "name": "s9a"
+      }
+    }
+  },
+  "new": {
+    "flyout": {
+      "flyout_ref01": {
+        "analyticsAttributes": [],
+        "baseGroups": [],
+        "elevatedGroups": [],
+        "name": "scc"
+      }
+    }
+  },
+  "requests": {
+    "GET /api-www/global-elements/global-header/v1/flyouts": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

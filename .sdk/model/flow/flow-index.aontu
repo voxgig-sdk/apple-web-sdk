@@ -1,0 +1,9 @@
+# Flows
+
+@"./BasicArticlecategoryFlow.aontu"
+@"./BasicFeedFlow.aontu"
+@"./BasicFlyoutFlow.aontu"
+@"./BasicGeoswitcherFlow.aontu"
+@"./BasicProductPriceFlow.aontu"
+@"./BasicSuggestionFlow.aontu"
+@"./BasicVideoLocalizationFlow.aontu"

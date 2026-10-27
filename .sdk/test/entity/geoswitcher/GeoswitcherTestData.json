@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "geoswitcher": {
+      "GEOSWITCHER00": {
+        "localeBasedLabels": [],
+        "regions": []
+      },
+      "GEOSWITCHER01": {
+        "localeBasedLabels": [],
+        "regions": []
+      },
+      "GEOSWITCHER02": {
+        "localeBasedLabels": [],
+        "regions": []
+      }
+    }
+  },
+  "new": {
+    "geoswitcher": {
+      "geoswitcher_ref01": {
+        "localeBasedLabels": [],
+        "regions": []
+      }
+    }
+  },
+  "requests": {
+    "GET /careers/ac-geoswitcher-data.json": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

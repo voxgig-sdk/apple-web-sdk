@@ -1,0 +1,991 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Apple Web API",
+    "description": "Unofficial, undocumented JSON endpoints that the www.apple.com website itself loads (global navigation, store prices, newsroom feeds, careers and video-player strings). This is not an Apple-published API. Knowledge comes from the community Swift client https://github.com/l0v3m0n3y/apple (src/apple.swift lists the seven routes) and from live GET probes of every route on 2026-10-23. Unverified: which newsroom categories exist besides `photos` and `update` (`latest` and `press-release` returned an empty `results` list); which store `country` path values work besides `us` and `uk` (part numbers are store-specific, e.g. `MX2D3AM/A` in the US and `MX2D3ZM/A` in the UK); and locales other than en-US and fr-FR. The suggestions route needs its trailing slash (without it the server answers 200 with an empty body). No key is needed; Apple may change any of these without notice.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/apple"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.apple.com",
+      "description": "apple.com website"
+    }
+  ],
+  "paths": {
+    "/api-www/global-elements/global-header/v1/flyouts": {
+      "get": {
+        "summary": "List global-header flyout menus",
+        "description": "Returns the drop-down menus of the apple.com global navigation for a locale.",
+        "operationId": "listFlyouts",
+        "parameters": [
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "description": "Locale in `ll_CC` form, e.g. `en_US`, `fr_FR`.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "en_US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Flyout menus",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Flyout"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{country}/shop/mcm/product-price": {
+      "get": {
+        "summary": "Get product prices",
+        "description": "Returns the price of each requested part number in the given country's online store.",
+        "operationId": "getProductPrice",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "path",
+            "required": true,
+            "description": "Store country path segment, e.g. `us`, `uk`.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "us"
+          },
+          {
+            "name": "parts",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated part numbers.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "MX2D3AM/A"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Prices by part number",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductPrice"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ac/ac-video/latest/json/localization/{locale}.json": {
+      "get": {
+        "summary": "Get video-player strings",
+        "description": "Returns the localised UI strings of the apple.com video player.",
+        "operationId": "getVideoLocalization",
+        "parameters": [
+          {
+            "name": "locale",
+            "in": "path",
+            "required": true,
+            "description": "Locale in `ll-CC` form, e.g. `en-US`, `fr-FR`.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "en-US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Localised strings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoLocalization"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search-services/suggestions/defaultlinks/": {
+      "get": {
+        "summary": "Get default search suggestions",
+        "description": "Returns the quick links shown when the apple.com search box opens.",
+        "operationId": "getSuggestion",
+        "parameters": [
+          {
+            "name": "src",
+            "in": "query",
+            "required": false,
+            "description": "Calling surface; the site sends `globalnav`.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "globalnav"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "description": "Locale in `ll_CC` form, e.g. `en_US`, `fr_FR`.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "en_US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default suggestions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Suggestion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/newsroom/newsroom.everydayfeed.json": {
+      "get": {
+        "summary": "Get the newsroom front-page feed",
+        "description": "Returns the tiles currently on the Apple Newsroom front page.",
+        "operationId": "getFeed",
+        "responses": {
+          "200": {
+            "description": "Newsroom feed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Feed"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/newsroom/article.{category}.json": {
+      "get": {
+        "summary": "List newsroom articles in a category",
+        "description": "Returns recent newsroom articles of one category. `latest` and `press-release` returned an empty list on 2026-10-23.",
+        "operationId": "listArticles",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "path",
+            "required": true,
+            "description": "Lower-case category, e.g. `photos`, `update`.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "photos"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Articles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Article"
+                      }
+                    }
+                  },
+                  "required": [
+                    "results"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/careers/ac-geoswitcher-data.json": {
+      "get": {
+        "summary": "Get careers country switcher data",
+        "description": "Returns the regions, countries and localised banner labels used by the Apple Careers site switcher.",
+        "operationId": "getGeoswitcher",
+        "responses": {
+          "200": {
+            "description": "Switcher data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Geoswitcher"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Flyout": {
+        "type": "object",
+        "description": "One drop-down menu of the apple.com global header.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Flyout id, e.g. `8543e00d`."
+          },
+          "name": {
+            "type": "string",
+            "description": "Menu name, e.g. `store`, `mac`, `iphone`, `support`."
+          },
+          "analyticsAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnalyticsAttribute"
+            }
+          },
+          "elevatedGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LinkGroup"
+            },
+            "description": "Absent on the `apple` (home) entry."
+          },
+          "baseGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LinkGroup"
+            },
+            "description": "Absent on the `apple` (home) entry."
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "analyticsAttributes"
+        ],
+        "additionalProperties": true
+      },
+      "LinkGroup": {
+        "type": "object",
+        "description": "A titled group of links in a flyout.",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "description": "Group heading, e.g. `Quick Links`."
+          },
+          "analyticsAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnalyticsAttribute"
+            }
+          },
+          "baseLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Regular links (absent on some elevated groups)."
+          },
+          "elevatedLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Prominent links (elevated groups only)."
+          }
+        },
+        "required": [
+          "id",
+          "title"
+        ],
+        "additionalProperties": true
+      },
+      "Link": {
+        "type": "object",
+        "description": "A link in a global-header flyout.",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "description": "Link text."
+          },
+          "url": {
+            "type": "string",
+            "description": "Site-relative or absolute URL."
+          },
+          "ariaLabel": {
+            "type": "string"
+          },
+          "analyticsAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnalyticsAttribute"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "url"
+        ],
+        "additionalProperties": true
+      },
+      "AnalyticsAttribute": {
+        "type": "object",
+        "description": "An analytics data attribute attached to a navigation element.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "e.g. `data-analytics-title`."
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "value"
+        ],
+        "additionalProperties": true
+      },
+      "ProductPrice": {
+        "type": "object",
+        "description": "Prices for the requested part numbers.",
+        "properties": {
+          "items": {
+            "type": "object",
+            "description": "Map from each requested part number to its price entry.",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PartPrice"
+            }
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "additionalProperties": true
+      },
+      "PartPrice": {
+        "type": "object",
+        "description": "Price information for one part number.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Part number, e.g. `MX2D3AM/A`."
+          },
+          "type": {
+            "type": "string",
+            "description": "`PART` for a known part; `UNKNOWN` when the part number is not sold in this store (then only `id` and `type` are present)."
+          },
+          "name": {
+            "type": "string"
+          },
+          "baseName": {
+            "type": "string"
+          },
+          "price": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "Price in the store's currency."
+              },
+              "display": {
+                "$ref": "#/components/schemas/PriceDisplay"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "PriceDisplay": {
+        "type": "object",
+        "description": "Localised display strings for a price.",
+        "properties": {
+          "smart": {
+            "type": "string",
+            "description": "e.g. `$129`."
+          },
+          "actual": {
+            "type": "string"
+          },
+          "monthlyFrom": {
+            "type": "string",
+            "description": "e.g. `From $10.75/mo. for 12 mo. or $129`."
+          },
+          "monthlyPrice": {
+            "type": "string"
+          },
+          "perMonth": {
+            "type": "string"
+          },
+          "perMonthSmart": {
+            "type": "string"
+          },
+          "perMonthActual": {
+            "type": "string"
+          },
+          "perMonthValue": {
+            "type": "string",
+            "description": "Monthly amount as a decimal string."
+          },
+          "months": {
+            "type": "string",
+            "description": "Instalment months as a string."
+          },
+          "apr": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      },
+      "VideoLocalization": {
+        "type": "object",
+        "description": "Localised UI strings of the apple.com video player, keyed by control name. The en-US file had 53 keys; fr-FR lacked `back`, so every key is optional.",
+        "properties": {
+          "audiotrackscontrol": {
+            "type": "string"
+          },
+          "adjustvolume": {
+            "type": "string"
+          },
+          "playpause": {
+            "type": "string"
+          },
+          "play": {
+            "type": "string"
+          },
+          "pause": {
+            "type": "string"
+          },
+          "mutevolume": {
+            "type": "string"
+          },
+          "fullscreen": {
+            "type": "string"
+          },
+          "exitfullscreen": {
+            "type": "string"
+          },
+          "airplay": {
+            "type": "string"
+          },
+          "captionscontrol": {
+            "type": "string"
+          },
+          "captionsturnedon": {
+            "type": "string"
+          },
+          "captionsturnedoff": {
+            "type": "string"
+          },
+          "subtitlescontrol": {
+            "type": "string"
+          },
+          "subtitlesturnedon": {
+            "type": "string"
+          },
+          "subtitlesturnedoff": {
+            "type": "string"
+          },
+          "share": {
+            "type": "string"
+          },
+          "elapsed": {
+            "type": "string"
+          },
+          "remaining": {
+            "type": "string"
+          },
+          "currenttimetext": {
+            "type": "string"
+          },
+          "pictureinpicture": {
+            "type": "string"
+          },
+          "exitpictureinpicture": {
+            "type": "string"
+          },
+          "closesharing": {
+            "type": "string"
+          },
+          "facebookshare": {
+            "type": "string"
+          },
+          "xshare": {
+            "type": "string"
+          },
+          "copylink": {
+            "type": "string"
+          },
+          "copyembed": {
+            "type": "string"
+          },
+          "copyarea": {
+            "type": "string"
+          },
+          "selectlink": {
+            "type": "string"
+          },
+          "selectembed": {
+            "type": "string"
+          },
+          "close": {
+            "type": "string"
+          },
+          "dismisscopy": {
+            "type": "string"
+          },
+          "replay": {
+            "type": "string"
+          },
+          "live": {
+            "type": "string"
+          },
+          "livestream": {
+            "type": "string"
+          },
+          "newwindow": {
+            "type": "string"
+          },
+          "threesixtyicon": {
+            "type": "string"
+          },
+          "threesixtyleft": {
+            "type": "string"
+          },
+          "threesixtyright": {
+            "type": "string"
+          },
+          "threesixtyup": {
+            "type": "string"
+          },
+          "threesixtydown": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          },
+          "jumptochapter": {
+            "type": "string"
+          },
+          "chapter": {
+            "type": "string"
+          },
+          "minutesandseconds": {
+            "type": "string"
+          },
+          "loading": {
+            "type": "string"
+          },
+          "captionsoff": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "subtitleslanguage": {
+            "type": "string"
+          },
+          "style": {
+            "type": "string"
+          },
+          "audiotrack": {
+            "type": "string"
+          },
+          "back": {
+            "type": "string"
+          },
+          "seekslider": {
+            "type": "string"
+          },
+          "chapters": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "Suggestion": {
+        "type": "object",
+        "description": "Default search suggestions shown when the apple.com search box opens.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Per-response id."
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sectionName": {
+                  "type": "string",
+                  "description": "e.g. `quickLinks`."
+                },
+                "sectionResults": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SuggestionLink"
+                  }
+                }
+              },
+              "required": [
+                "sectionName",
+                "sectionResults"
+              ],
+              "additionalProperties": true
+            }
+          }
+        },
+        "required": [
+          "id",
+          "results"
+        ],
+        "additionalProperties": true
+      },
+      "SuggestionLink": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "url"
+        ],
+        "additionalProperties": true
+      },
+      "Feed": {
+        "type": "object",
+        "description": "The Apple Newsroom front-page feed.",
+        "properties": {
+          "results": {
+            "type": "object",
+            "properties": {
+              "headline": {
+                "type": "string",
+                "description": "e.g. `Latest News`."
+              },
+              "tiles": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/NewsTile"
+                }
+              }
+            },
+            "required": [
+              "headline",
+              "tiles"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "results"
+        ],
+        "additionalProperties": true
+      },
+      "NewsTile": {
+        "type": "object",
+        "description": "A tile on the newsroom front page.",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "e.g. `PHOTOS`, `UPDATE`, `PRESS RELEASE`."
+          },
+          "headline": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string",
+            "description": "Display date, e.g. `October 23, 2026`."
+          },
+          "ts": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ariaLabel": {
+            "type": "string"
+          },
+          "eyebrow": {
+            "type": "string",
+            "description": "Present on some tiles."
+          },
+          "data-analytics-title": {
+            "type": "string",
+            "description": "Present on some tiles."
+          },
+          "animated1": {
+            "type": "boolean",
+            "description": "Present on animated tiles."
+          },
+          "video": {
+            "type": "object",
+            "description": "Present on animated tiles.",
+            "properties": {
+              "src": {
+                "type": "string",
+                "description": "Site-relative video URL."
+              }
+            },
+            "additionalProperties": true
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "Site-relative article URL."
+              },
+              "type": {
+                "type": "string",
+                "description": "Tile layout, e.g. `hero-highlight`."
+              },
+              "gradientType": {
+                "type": "string"
+              },
+              "usePicture": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": true
+          },
+          "image": {
+            "type": "object",
+            "properties": {
+              "metadata": {
+                "type": "object",
+                "properties": {
+                  "uuid": {
+                    "type": "string"
+                  },
+                  "srcs": {
+                    "$ref": "#/components/schemas/ImageSizes"
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "category",
+          "headline",
+          "time",
+          "ts",
+          "metadata",
+          "image"
+        ],
+        "additionalProperties": true
+      },
+      "ImageSizes": {
+        "type": "object",
+        "description": "Image URLs by rendition size.",
+        "properties": {
+          "small": {
+            "type": "string"
+          },
+          "small2x": {
+            "type": "string"
+          },
+          "medium": {
+            "type": "string"
+          },
+          "medium2x": {
+            "type": "string"
+          },
+          "large": {
+            "type": "string"
+          },
+          "large2x": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      },
+      "Article": {
+        "type": "object",
+        "description": "An Apple Newsroom article listed in a category.",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "description": "e.g. `PHOTOS`, `UPDATE`."
+          },
+          "date": {
+            "type": "string",
+            "description": "Display date, e.g. `September 18, 2026`."
+          },
+          "publishedTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Publication time in epoch milliseconds."
+          },
+          "link": {
+            "type": "string",
+            "description": "Absolute article URL."
+          },
+          "image": {
+            "type": "object",
+            "description": "Tile images by layout.",
+            "properties": {
+              "wide": {
+                "$ref": "#/components/schemas/ImageSizes"
+              },
+              "hero-highlight": {
+                "$ref": "#/components/schemas/ImageSizes"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "category",
+          "date",
+          "publishedTime",
+          "link",
+          "image"
+        ],
+        "additionalProperties": true
+      },
+      "Geoswitcher": {
+        "type": "object",
+        "description": "Country and locale data for the Apple Careers site switcher.",
+        "properties": {
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "A careers region. Each item also carries its name under the key `region label` (with a space), e.g. `Africa, Middle East, and India`; it is left out of the declared properties because a key with a space is not a valid field name in every SDK language, and passes through as an additional property.",
+              "properties": {
+                "countries": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Country"
+                  }
+                }
+              },
+              "required": [
+                "countries"
+              ],
+              "additionalProperties": true
+            }
+          },
+          "localeBasedLabels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "locale": {
+                  "type": "string",
+                  "description": "e.g. `cs-cz`."
+                },
+                "country": {
+                  "type": "string"
+                },
+                "barHeadline": {
+                  "type": "string"
+                },
+                "closeButtonLabel": {
+                  "type": "string"
+                },
+                "cta": {
+                  "type": "string"
+                },
+                "currentlyViewing": {
+                  "type": "string"
+                },
+                "modalHeadline": {
+                  "type": "string",
+                  "description": "Present on one locale only."
+                }
+              },
+              "required": [
+                "locale",
+                "country",
+                "barHeadline",
+                "closeButtonLabel",
+                "cta",
+                "currentlyViewing"
+              ],
+              "additionalProperties": true
+            }
+          }
+        },
+        "required": [
+          "regions",
+          "localeBasedLabels"
+        ],
+        "additionalProperties": true
+      },
+      "Country": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Country name, e.g. `Egypt`."
+          },
+          "lang": {
+            "type": "string",
+            "description": "Locale tag, e.g. `en-EG`."
+          },
+          "locale": {
+            "type": "string",
+            "description": "Careers path, e.g. `/careers/eg/`."
+          }
+        },
+        "required": [
+          "label",
+          "lang",
+          "locale"
+        ],
+        "additionalProperties": true
+      }
+    }
+  }
+}

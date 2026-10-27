@@ -1,0 +1,106 @@
+# Entity: flyout
+
+main: kit: entity: flyout: {
+
+  alias: field: {}
+
+  fields: {
+    analyticsAttributes: {
+      h: "Analytics Attributes"
+      n: "analyticsAttributes"
+      r: true
+      t: "`$ARRAY`"
+    }
+    baseGroups: {
+      h: "Base Groups"
+      n: "baseGroups"
+      r: false
+      sh: "Absent on the `apple` (home) entry."
+      t: "`$ARRAY`"
+    }
+    elevatedGroups: {
+      h: "Elevated Groups"
+      n: "elevatedGroups"
+      r: false
+      sh: "Absent on the `apple` (home) entry."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Flyout id, e.g."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Menu name, e.g."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "flyout"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api-www/global-elements/global-header/v1/flyouts"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "en_US"
+                k: "query"
+                n: "locale"
+                or: "locale"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api-www/global-elements/global-header/v1/flyouts"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api-www"
+            }
+            {
+              lit: "global-elements"
+            }
+            {
+              lit: "global-header"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "flyouts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

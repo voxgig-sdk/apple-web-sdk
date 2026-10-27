@@ -1,0 +1,32 @@
+# BasicProductPriceFlow
+
+main: kit: flow: BasicProductPriceFlow:
+{
+  entity: "product_price",
+  kind: "basic",
+  name: "BasicProductPriceFlow",
+  step: [
+    {
+      i: {
+        ref: "product_price_ref01",
+        srcdatavar: "product_price_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "product_price01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-product_price_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicProductPriceFlow"
+}

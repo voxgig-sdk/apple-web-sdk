@@ -1,0 +1,21 @@
+{
+  "existing": {
+    "suggestion": {
+      "SUGGESTION00": {},
+      "SUGGESTION01": {},
+      "SUGGESTION02": {}
+    }
+  },
+  "new": {
+    "suggestion": {
+      "suggestion_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /search-services/suggestions/defaultlinks/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

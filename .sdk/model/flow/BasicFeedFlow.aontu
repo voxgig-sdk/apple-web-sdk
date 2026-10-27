@@ -1,0 +1,28 @@
+# BasicFeedFlow
+
+main: kit: flow: BasicFeedFlow:
+{
+  entity: "feed",
+  kind: "basic",
+  name: "BasicFeedFlow",
+  step: [
+    {
+      i: {
+        ref: "feed_ref01",
+        srcdatavar: "feed_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-feed_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFeedFlow"
+}

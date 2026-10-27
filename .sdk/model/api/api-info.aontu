@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://github.com/l0v3m0n3y/apple"
+      }
+      description: "Unofficial, undocumented JSON endpoints that the www.apple.com website itself loads (global navigation, store prices, newsroom feeds, careers and video-player strings). This is not an Apple-published API. Knowledge comes from the community Swift client https://github.com/l0v3m0n3y/apple (src/apple.swift lists the seven routes) and from live GET probes of every route on 2026-10-23. Unverified: which newsroom categories exist besides `photos` and `update` (`latest` and `press-release` returned an empty `results` list); which store `country` path values work besides `us` and `uk` (part numbers are store-specific, e.g. `MX2D3AM/A` in the US and `MX2D3ZM/A` in the UK); and locales other than en-US and fr-FR. The suggestions route needs its trailing slash (without it the server answers 200 with an empty body). No key is needed; Apple may change any of these without notice."
+      servers: [
+        {
+          description: "apple.com website"
+          url: "https://www.apple.com"
+        }
+      ]
+      summary: "Unofficial, undocumented JSON endpoints that the www.apple.com website itself loads (global navigation, store prices, newsroom feeds, careers and video-player strings)."
+      title: "Apple Web API"
+      version: "1.0.0"
+      website: "https://apple.com"
+    }
+  }
+}
+

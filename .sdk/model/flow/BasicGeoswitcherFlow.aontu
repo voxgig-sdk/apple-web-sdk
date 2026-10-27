@@ -1,0 +1,22 @@
+# BasicGeoswitcherFlow
+
+main: kit: flow: BasicGeoswitcherFlow:
+{
+  entity: "geoswitcher",
+  kind: "basic",
+  name: "BasicGeoswitcherFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "geoswitcher_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGeoswitcherFlow"
+}

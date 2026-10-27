@@ -1,0 +1,72 @@
+# Entity: suggestion
+
+main: kit: entity: suggestion: {
+
+  alias: field: {}
+
+  name: "suggestion"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /search-services/suggestions/defaultlinks/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "en_US"
+                k: "query"
+                n: "locale"
+                or: "locale"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "globalnav"
+                k: "query"
+                n: "src"
+                or: "src"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/search-services/suggestions/defaultlinks/"
+          q: {
+            "$action": "defaultlink"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "search-services"
+            }
+            {
+              lit: "suggestions"
+            }
+            {
+              lit: "defaultlinks"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

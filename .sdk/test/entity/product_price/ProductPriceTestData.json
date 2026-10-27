@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "product_price": {
+      "PRODUCT_PRICE00": {
+        "baseName": "s32",
+        "id": "PRODUCT_PRICE00",
+        "name": "s34",
+        "price": {},
+        "type": "s36",
+        "country": "COUNTRY01"
+      },
+      "PRODUCT_PRICE01": {
+        "baseName": "s64",
+        "id": "PRODUCT_PRICE01",
+        "name": "s66",
+        "price": {},
+        "type": "s68",
+        "country": "COUNTRY01"
+      },
+      "PRODUCT_PRICE02": {
+        "baseName": "s96",
+        "id": "PRODUCT_PRICE02",
+        "name": "s98",
+        "price": {},
+        "type": "s9a",
+        "country": "COUNTRY01"
+      }
+    }
+  },
+  "new": {
+    "product_price": {
+      "product_price_ref01": {
+        "baseName": "sc8",
+        "name": "sca",
+        "price": {},
+        "type": "scc"
+      }
+    }
+  },
+  "requests": {
+    "GET /{country}/shop/mcm/product-price": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+# BasicVideoLocalizationFlow
+
+main: kit: flow: BasicVideoLocalizationFlow:
+{
+  entity: "video_localization",
+  kind: "basic",
+  name: "BasicVideoLocalizationFlow",
+  step: [
+    {
+      i: {
+        ref: "video_localization_ref01",
+        srcdatavar: "video_localization_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        locale: "locale01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-video_localization_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicVideoLocalizationFlow"
+}
